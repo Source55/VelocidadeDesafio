@@ -6,12 +6,9 @@
 <string name="fimdojogo3">I wrote 400 lines of java code</string>
 <string name="fimdojogo4">And I edit about 20 images</string>
 <string name="fimdojogo5">And I test so far. I hope you enjoy Playing</string>
-<string name="fimdojogo6">Please rate the game on play Store</string>
 <string name="passoudefase">Stage Complete</string>
 <string name="faltaestrela">Locked</string>
 <string name="tentedenovo1">Try Again !!!</string>
 <string name="tentedenovo2">You should be fast</string>
 <string name="tentedenovo3">and not take shortcut</string>
-<string name="fase">Stage</string>
-<string name="segundos">seconds</string>
 </resources>

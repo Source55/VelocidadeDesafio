@@ -26,7 +26,7 @@ import android.graphics.Typeface;
 
 public class MainActivity extends Activity{
 	ViewDirigindo vd;
-	Bitmap logo,botaocw,botaoccw,carro[]=new Bitmap[36],pista[]=new Bitmap[21],numeros[]=new Bitmap[6],estrela,semestrela,pistamini[]=new Bitmap[21];
+	Bitmap prev,prox,logo,botaocw,botaoccw,carro[]=new Bitmap[36],pista[]=new Bitmap[21],numeros[]=new Bitmap[6],estrela,semestrela,pistamini[]=new Bitmap[21];
 	float maxx=800,maxy=444,px,py,vx,vy,tamanhotela,tamanhominiaturas;
 	boolean apertandocw=false,apertandoccw=false,pisoufora;
 	String debug="";
@@ -97,6 +97,8 @@ public class MainActivity extends Activity{
 		logo=Bitmap.createScaledBitmap(BitmapFactory.decodeResource(r,R.drawable.logo),(int)Math.ceil(645*tamanhotela),(int)Math.ceil(450*tamanhotela),true);
 		botaoccw=Bitmap.createScaledBitmap(BitmapFactory.decodeResource(r,R.drawable.ccw),(int)Math.ceil(120*tamanhotela),(int)Math.ceil(120*tamanhotela),true);
 		botaocw=Bitmap.createScaledBitmap(BitmapFactory.decodeResource(r,R.drawable.cw),(int)Math.ceil(120*tamanhotela),(int)Math.ceil(120*tamanhotela),true);
+		prev=Bitmap.createScaledBitmap(BitmapFactory.decodeResource(r,R.drawable.prev),(int)Math.ceil(200*tamanhotela),(int)Math.ceil(200*tamanhotela),true);
+		prox=Bitmap.createScaledBitmap(BitmapFactory.decodeResource(r,R.drawable.prox),(int)Math.ceil(200*tamanhotela),(int)Math.ceil(200*tamanhotela),true);
 		carro[0]=Bitmap.createScaledBitmap(BitmapFactory.decodeResource(r,R.drawable.carro),(int)Math.ceil(72*tamanhotela),(int)Math.ceil(72*tamanhotela),true);
 		numeros[1]=Bitmap.createScaledBitmap(BitmapFactory.decodeResource(r,R.drawable.n1),(int)Math.ceil(240*tamanhotela),(int)Math.ceil(240*tamanhotela),true);
 		numeros[2]=Bitmap.createScaledBitmap(BitmapFactory.decodeResource(r,R.drawable.n2),(int)Math.ceil(240*tamanhotela),(int)Math.ceil(240*tamanhotela),true);
@@ -318,21 +320,20 @@ public class MainActivity extends Activity{
 				p.setColor(new Color().rgb(230,230,230));
 				p.setTextSize((float)(maxy*0.047));
 				c.drawText(getString(R.string.fimdojogo2),(float)(maxy*0.1),(float)(maxy*0.46),p);
-				c.drawText(getString(R.string.fimdojogo3),(float)(maxy*0.1),(float)(maxy*0.54),p);
-				c.drawText(getString(R.string.fimdojogo4),(float)(maxy*0.1),(float)(maxy*0.62),p);
-				c.drawText(getString(R.string.fimdojogo5),(float)(maxy*0.1),(float)(maxy*0.70),p);
-				p.setColor(new Color().rgb(145,145,280));
+				c.drawText(getString(R.string.fimdojogo3),(float)(maxy*0.1),(float)(maxy*0.59),p);
+				c.drawText(getString(R.string.fimdojogo4),(float)(maxy*0.1),(float)(maxy*0.72),p);
+				p.setColor(new Color().rgb(0,180,65));
 				p.setTextSize((float)(maxy*0.06));
-				c.drawText(getString(R.string.fimdojogo6),(float)(maxy*0.1),(float)(maxy*0.83),p);
+				c.drawText(getString(R.string.fimdojogo5),(float)(maxy*0.1),(float)(maxy*0.89),p);
 			}
 			else if(tempo==-2){
-				p.setColor(new Color().RED);
+				p.setColor(new Color().rgb(0,180,65));
 				p.setTextSize((float)(maxy*0.1));
 				c.drawText(getString(R.string.tentedenovo1),(float)(maxy*0.1),(float)(maxy*0.2),p);
-				p.setColor(new Color().rgb(145,145,280));
+				p.setColor(new Color().rgb(15,120,215));
 				p.setTextSize((float)(maxy*0.047));
-				c.drawText(getString(R.string.tentedenovo2),(float)(maxy*0.1),(float)(maxy*0.40),p);
-				c.drawText(getString(R.string.tentedenovo3),(float)(maxy*0.1),(float)(maxy*0.48),p);
+				c.drawText(getString(R.string.tentedenovo2),(float)(maxy*0.1),(float)(maxy*0.36),p);
+				c.drawText(getString(R.string.tentedenovo3),(float)(maxy*0.1),(float)(maxy*0.44),p);
 				for(int x=0;x<8;x++)c.drawBitmap(pista[3],(x*200*tamanhotela)-(100*tamanhotela),(float)(maxy*0.54),p);
 			}
 			else if(tempo==-1){
@@ -343,12 +344,12 @@ public class MainActivity extends Activity{
 				c.drawBitmap(estrelas[fase]>0?estrela:semestrela,(maxx/2)-(75*tamanhotela),(float)(maxy*0.02),p);
 				c.drawBitmap(estrelas[fase]>1?estrela:semestrela,(maxx/2)-(25*tamanhotela),(float)(maxy*0.02),p);
 				c.drawBitmap(estrelas[fase]>2?estrela:semestrela,(maxx/2)+(25*tamanhotela),(float)(maxy*0.02),p);
-				c.drawBitmap(pista[4],40*tamanhotela,((maxy-300)/2*tamanhotela),p);
-				c.drawBitmap(pista[3],maxx-(240*tamanhotela),((maxy-300)/2*tamanhotela),p);
+				c.drawBitmap(prev,40*tamanhotela,((maxy-300)/2*tamanhotela),p);
+				c.drawBitmap(prox,maxx-(240*tamanhotela),((maxy-300)/2*tamanhotela),p);
 				p.setColor(new Color().rgb(215,215,215));
 				p.setTextSize((float)((maxx-(200*tamanhotela))*0.06));
 				p.setTextAlign(Paint.Align.CENTER);
-				c.drawText(getString(R.string.fase)+" "+String.valueOf(fase+1)+" - "+String.valueOf(tempodafase[fase]/100)+" "+getString(R.string.segundos)+" - "+String.valueOf(vmax[fase]*5)+" Km/h",maxx/2,(float)(maxy*0.95),p);
+				c.drawText(String.valueOf(vmax[fase]*5)+" Km/h",maxx/2,(float)(maxy*0.976),p);
 			}
 			else if(tempo>0){
 				p.setColor(new Color().rgb(10,45,90));
