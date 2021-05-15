@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 <string name="nomedojogo">Velocidade Desafio</string>
-<string name="fimdojogo1">Fim de Jogo !!!</string>
-<string name="fimdojogo2">Fazer esse jogo foi divertido.</string>
-<string name="fimdojogo3">Eu escrevi umas 400 linhas de código (java)</string>
-<string name="fimdojogo4">Editei umas imagens e testei bastante</string>
-<string name="fimdojogo5">Espero que você tenha gostado de jogar.</string>
+<string name="fimdojogo1">Fim de Jogo</string>
+<string name="fimdojogo2">Parabéns</string>
 <string name="passoudefase">Passou de Fase</string>
 <string name="faltaestrela">Pista Bloqueada</string>
 <string name="tentedenovo1">Tente de novo...</string>

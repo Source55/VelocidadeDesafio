@@ -29,7 +29,6 @@ public class MainActivity extends Activity{
 	Bitmap prev,prox,logo,botaocw,botaoccw,carro[]=new Bitmap[36],pista[]=new Bitmap[21],numeros[]=new Bitmap[6],estrela,semestrela,pistamini[]=new Bitmap[21];
 	float maxx=800,maxy=444,px,py,vx,vy,tamanhotela,tamanhominiaturas;
 	boolean apertandocw=false,apertandoccw=false,pisoufora;
-	String debug="";
 	int angulo3,tempo=-5,fase=0,fasemax=0,qtdfases=24,japassou[][]=new int[100][2],tamjapassou;
 	int minestrela[]={1,1,2,1,1,6,3,3,2,3,2,3,2,3,3,4,6,3,6,3,3,4,3,4};
 	int estrelas[]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
@@ -195,7 +194,6 @@ public class MainActivity extends Activity{
 						japassou[tamjapassou][1]=emcimade[1];
 					}
 					if(emcimade[0]==cfinais[fase][0]&&emcimade[1]==cfinais[fase][1]){
-						//debug=String.valueOf(tempo);
 						boolean mostrafim=false;
 						if(tamjapassou>=qtascasasprecisa[fase]){
 							boolean mudafase=false;
@@ -314,23 +312,19 @@ public class MainActivity extends Activity{
 				c.drawText(getString(R.string.passoudefase),maxx/2,maxy/2,p);
 			}
 			else if(tempo==-3){
+				p.setTextAlign(Paint.Align.CENTER);
 				p.setColor(new Color().rgb(15,120,215));
 				p.setTextSize((float)(maxy*0.18));
-				c.drawText(getString(R.string.fimdojogo1),(float)(maxy*0.1),(float)(maxy*0.27),p);
+				c.drawText(getString(R.string.fimdojogo1),maxx/2,(float)(maxy*0.4),p);
 				p.setColor(new Color().rgb(230,230,230));
-				p.setTextSize((float)(maxy*0.047));
-				c.drawText(getString(R.string.fimdojogo2),(float)(maxy*0.1),(float)(maxy*0.46),p);
-				c.drawText(getString(R.string.fimdojogo3),(float)(maxy*0.1),(float)(maxy*0.59),p);
-				c.drawText(getString(R.string.fimdojogo4),(float)(maxy*0.1),(float)(maxy*0.72),p);
-				p.setColor(new Color().rgb(0,180,65));
-				p.setTextSize((float)(maxy*0.06));
-				c.drawText(getString(R.string.fimdojogo5),(float)(maxy*0.1),(float)(maxy*0.89),p);
+				p.setTextSize((float)(maxy*0.12));
+				c.drawText(getString(R.string.fimdojogo2),maxx/2,(float)(maxy*0.64),p);
 			}
 			else if(tempo==-2){
 				p.setColor(new Color().rgb(0,180,65));
 				p.setTextSize((float)(maxy*0.1));
 				c.drawText(getString(R.string.tentedenovo1),(float)(maxy*0.1),(float)(maxy*0.2),p);
-				p.setColor(new Color().rgb(15,120,215));
+				p.setColor(new Color().rgb(215,215,215));
 				p.setTextSize((float)(maxy*0.047));
 				c.drawText(getString(R.string.tentedenovo2),(float)(maxy*0.1),(float)(maxy*0.36),p);
 				c.drawText(getString(R.string.tentedenovo3),(float)(maxy*0.1),(float)(maxy*0.44),p);
@@ -349,7 +343,7 @@ public class MainActivity extends Activity{
 				p.setColor(new Color().rgb(215,215,215));
 				p.setTextSize((float)((maxx-(200*tamanhotela))*0.06));
 				p.setTextAlign(Paint.Align.CENTER);
-				c.drawText(String.valueOf(vmax[fase]*5)+" Km/h",maxx/2,(float)(maxy*0.976),p);
+				c.drawText(String.valueOf(vmax[fase]*5)+" Km/h",maxx/2,(float)(maxy*0.972),p);
 			}
 			else if(tempo>0){
 				p.setColor(new Color().rgb(10,45,90));
@@ -368,10 +362,6 @@ public class MainActivity extends Activity{
 				c.drawBitmap(botaoccw,(20*tamanhotela),maxy-(140*tamanhotela),p);
 				if(apertandocw)c.drawCircle(maxx-(80*tamanhotela),maxy-(80*tamanhotela),(58*tamanhotela),p);
 				c.drawBitmap(botaocw,maxx-(140*tamanhotela),maxy-(140*tamanhotela),p);
-			}
-			if(!debug.equals("")){
-				p.setColor(Color.WHITE);
-				c.drawText(debug,100,100,p);
 			}
 		}
 	}
